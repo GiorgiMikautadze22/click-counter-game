@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Result from "./Result";
 
-const Game = () => {
-  const [count, setCount] = useState(0);
-  const [time, setTime] = useState(10);
+interface timeProps {
+  time: number;
+  setTime: React.Dispatch<React.SetStateAction<number>>;
+  count: number;
+  setCount: React.Dispatch<React.SetStateAction<number>>;
+}
 
+const Game = ({ time, setTime, count, setCount }: timeProps) => {
   const handleClick = () => {
     setCount(count + 1);
   };
@@ -32,7 +36,6 @@ const Game = () => {
       )}
       <p>Time left: {time} seconds</p>
       <p>Click count: {count}</p>
-      {time === 0 ? <Result count={count} /> : null}
     </div>
   );
 };
