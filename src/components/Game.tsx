@@ -1,12 +1,5 @@
-import React, { useEffect, useState } from "react";
-import Result from "./Result";
-
-interface timeProps {
-  time: number;
-  setTime: React.Dispatch<React.SetStateAction<number>>;
-  count: number;
-  setCount: React.Dispatch<React.SetStateAction<number>>;
-}
+import React, { useEffect } from "react";
+import { timeProps } from "../Interfaces/Interfaces";
 
 const Game = ({ time, setTime, count, setCount }: timeProps) => {
   const handleClick = () => {
@@ -17,7 +10,7 @@ const Game = ({ time, setTime, count, setCount }: timeProps) => {
     const countDown = setInterval(() => {
       if (time === 0) {
         clearInterval(countDown);
-      } else {
+      } else if (time) {
         setTime(time - 1);
       }
     }, 1000);

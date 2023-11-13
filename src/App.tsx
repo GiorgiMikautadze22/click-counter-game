@@ -16,7 +16,12 @@ function App() {
       <Game time={time} setTime={setTime} count={count} setCount={setCount} />
       {time === 0 ? (
         <>
-          <Result count={count} ref={counterRef} />
+          <Result
+            count={count}
+            setCount={setCount}
+            setTime={setTime}
+            ref={counterRef}
+          />
           <button onClick={() => counterRef.current?.handleRefresh()}>
             Restart
           </button>
